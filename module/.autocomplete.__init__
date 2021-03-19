@@ -45,10 +45,6 @@ builtin autoload -Uz add-zsh-hook .autocomplete.mathfunc .autocomplete.screen-sp
   [[ -d $XDG_DATA_HOME/zsh ]] ||
     zf_mkdir -pm 0700 $XDG_DATA_HOME/zsh
 
-  add-zsh-hook precmd .autocomplete.screen-space
-  local -i pslines=${#${(%%)PS1}//[^$'\n']}
-  typeset -gHi _autocomplete__screen_space=$(( LINES - pslines - 2 ))
-
   local mod; for mod in compinit config widget key key-binding recent-dirs async; do
     mod=.autocomplete.$mod.precmd
     if [[ -v functions[$mod] ]]; then
@@ -67,5 +63,5 @@ local mod; for mod in compinit config widget key key-binding recent-dirs async; 
   fi
 done
 
-add-zsh-hook precmd .autocomplete.__init__.precmd
+.autocomplete.__init__.precmd
 unfunction .autocomplete.__init__

@@ -327,6 +327,7 @@ bindkey -s -M menuselect '^S' '^G^S'
 }
 
 .autocomplete.async.list-choices.complete() {
+    .autocomplete.screen-space
   local -i _autocomplete__max_lines=$(( _autocomplete__max_lines() ))
   {
     () {
@@ -426,10 +427,6 @@ bindkey -s -M menuselect '^S' '^G^S'
     .autocomplete.compadd "$@"
     return
   fi
-
-  local info hint=$'%{\e[02;39m%}' kbd=$'%{\e[22;39m%}' end=$'%{\e[0m%}'
-  zstyle -s ":autocomplete:${curcontext}:too-many-matches" message info ||
-    info="${hint}(partial list; press ${kbd}Down$hint to expand)$end"
 
   if [[ -v _opts_[-D] ]]; then
     if (( $#uniques > lines_available )); then

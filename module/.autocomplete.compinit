@@ -22,14 +22,14 @@ _bash_complete compgen complete () {
   [[ -z $CDPATH ]] &&
     unset cdpath CDPATH
 
-  local -i fd
+  local -i __ac_fd
 
   .autocomplete.compinit.zle-f() {
     exec {1}<&-
     zle -F $1 2>/dev/null
     unfunction ${(%):-%N}
   }
-  zle -F "$fd" .autocomplete.compinit.zle-f
+  zle -F "$__ac_fd" .autocomplete.compinit.zle-f
 
   builtin autoload -Uz .autocomplete.patch
 

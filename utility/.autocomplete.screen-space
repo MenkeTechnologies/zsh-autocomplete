@@ -4,7 +4,7 @@ zmodload -F zsh/terminfo b:echoti
 .autocomplete.screen-space() {
   emulate -L zsh; setopt $_autocomplete__options
 
-  _autocomplete__screen_space=$(( LINES - y - BUFFERLINES - 2 ))
+  _autocomplete__screen_space=$(( LINES - y - BUFFERLINES ))
 }
 
 .autocomplete.screen-space "$@"

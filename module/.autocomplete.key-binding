@@ -43,9 +43,9 @@ zmodload -Fa zsh/parameter p:funcstack p:functions
   fi
 }
 
-bindkey -M emacs $key[Control-Space] list-expand
-bindkey -M vicmd $key[Control-Space] list-expand
-bindkey -M viins $key[Control-Space] list-expand
+#bindkey -M emacs $key[Control-Space] list-expand
+#bindkey -M vicmd $key[Control-Space] list-expand
+#bindkey -M viins $key[Control-Space] list-expand
 
 bindkey -M emacs $key[Up] up-line-or-search
 bindkey -M viins $key[Up] up-line-or-search
@@ -66,7 +66,8 @@ bindkey -M emacs $key[PageDown] menu-select
 bindkey -M viins $key[PageDown] menu-select
 
 bindkey -M menuselect $key[Return] .accept-line
-bindkey -M menuselect $key[Control-Space] accept-and-hold
+#bindkey -M menuselect $key[Control-Space] accept-and-hold
+#
 case $( bindkey -lL main ) in
   *emacs* )
     bindkey -M menuselect $'\C-[f' .forward-word

@@ -23,5 +23,13 @@ setopt NO_singlelinezle
   [[ -v functions[.zinit-shade-on] ]] &&
     .zinit-shade-on "${___mode:-load}"
 
+
   return 0
 }
+
+zstyle -d ':completion:*:functions' ignored-patterns
+zstyle -d ':completion:*:*:*:*:*' menu
+zstyle -d '*' single-ignored
+zstyle -d ':completion:*' special-dirs
+zstyle -d ':completion:*:default' list-prompt
+unset LISTPROMPT

@@ -11,10 +11,8 @@ zmodload -F zsh/parameter p:funcstack p:functions
   }
 
 _bash_complete compgen complete () {
-  unfunction _bash_complete compgen complete
   builtin autoload -Uz bashcompinit
   bashcompinit
-  bashcompinit() { : }
   ${(%):-%N} "$@"
 }
 
